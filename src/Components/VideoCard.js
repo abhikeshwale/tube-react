@@ -15,6 +15,9 @@ const VideoCard = ({info}) => {
      * 
      */
 
+
+
+
   return (
     <div className='shadow-lg p-2 m-2 w-72 '>
         <img className='rounded-lg' alt='thumbnail' src={thumbnails.medium.url}></img>
@@ -25,6 +28,14 @@ const VideoCard = ({info}) => {
             <li> {channelTitle}</li>
         </ul>
 
+    </div>
+  )
+}
+
+export const AdCardHigherOrderComponent = ({info}) => {
+  return (
+    <div className='m-1 p-1 border border-red-600'>
+      <VideoCard info={info}/>
     </div>
   )
 }
