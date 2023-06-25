@@ -2,6 +2,7 @@
 import { YOUTUBE_API } from '../util/Constants';
 import VideoCard, { AdCardHigherOrderComponent } from './VideoCard';
 import { Link } from 'react-router-dom';
+import VideoCntSidebar from './VideoCntSidebar';
 export const VideoContainer = () => {
   const [videos , setVideos] = useState([]);
   useEffect(()=> {
@@ -16,13 +17,14 @@ export const VideoContainer = () => {
   }
 
 
-  return (
+  return (<>
     <div className='flex flex-wrap'>
       {videos[0] && <AdCardHigherOrderComponent info={videos[0]}/>}
       {videos.map((video)=>(
         <Link to={"watch?v="+video.id} ><VideoCard key = {video.id} info= {video}/></Link> )
       )}
-    
-    </div>
+        </div>
+        
+       </>
   )
 }

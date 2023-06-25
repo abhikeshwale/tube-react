@@ -2,6 +2,9 @@ import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { closeMenu } from "../util/appSlice";
 import { useSearchParams } from "react-router-dom";
+import VideoCntSidebar from "./VideoCntSidebar";
+import CommentsContainer from "./CommentsContainer";
+import ChannelDetails from "./ChannelDetails";
 
 const WatchPage = () => {
   const [searchParams] = useSearchParams();
@@ -11,7 +14,7 @@ const WatchPage = () => {
   useEffect(() => {
     dispatch(closeMenu());
   }, []);
-  return (
+  return (<>
     <div className="p-5 ">
       <iframe
         width="640"
@@ -27,8 +30,12 @@ const WatchPage = () => {
         allowFullScreen
         autoPlay="1"
       ></iframe>
+      <ChannelDetails/>
+      <CommentsContainer/>
  
     </div>
+    
+    <div> <VideoCntSidebar/></div></>
   );
 };
 
